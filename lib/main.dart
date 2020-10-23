@@ -68,7 +68,6 @@ class MyApp extends StatelessWidget {
         )
       ],
     );
-
     Widget sameLengthButtons = Center(
       child: IntrinsicWidth(
         child: Column(
@@ -172,6 +171,58 @@ class MyApp extends StatelessWidget {
       ],
     );
 
+    Widget linearGradientSection = Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: const [
+            Colors.red,
+            Colors.pink,
+            Colors.blue,
+          ]
+        )
+      ),
+    );
+
+    Widget RadialGradientSection = Container(
+      height: 200,
+      width: 200,
+      decoration: BoxDecoration(
+        gradient: RadialGradient(
+          colors: const [
+            Colors.yellow, Colors.blue, Colors.lightBlue
+          ],
+          stops: const [
+            0.4, 0.8, 1.0
+          ]
+        )
+      ),
+    );
+
+    Widget sizedBoxAsPaddingSection = Column(
+      children: [
+        Icon(Icons.star, size: 50),
+        Icon(Icons.star, size: 50),
+        const SizedBox(height: 100),
+        Icon(Icons.star, size: 50),
+      ]
+    );
+
+    bool isVisible = false;
+    Widget sizedBoxAsDisplayNoneSection = Container(
+      child: Column(
+        children: [
+          isVisible
+          ? Icon(Icons.star, size: 150, color: Colors.amber)
+          : const SizedBox(),
+          isVisible
+          ? const SizedBox()
+          : Icon(Icons.star, size: 150, color: Colors.amber)
+        ],
+      )
+    );
+
     return MaterialApp(
       title: 'Flutter cheet sheat',
       home: Scaffold(
@@ -189,7 +240,11 @@ class MyApp extends StatelessWidget {
             expandedSection,
             alignSection,
             backgroundImageSection,
-            shapeSection
+            shapeSection,
+            linearGradientSection,
+            RadialGradientSection,
+            sizedBoxAsPaddingSection,
+            sizedBoxAsDisplayNoneSection
           ],
         ),
       )
